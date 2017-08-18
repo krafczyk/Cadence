@@ -481,7 +481,7 @@ void splitGroup(int group_id)
         {
             if (group.split)
             {
-                qCritical("PatchCanvas::splitGroup(%i) - group is already splitted", group_id);
+                qCritical("PatchCanvas::splitGroup(%i) - group is already splitted TEST TEST", group_id);
                 return;
             }
 
