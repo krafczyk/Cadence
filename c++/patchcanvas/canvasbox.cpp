@@ -39,6 +39,9 @@ CanvasBox::CanvasBox(int group_id, QString group_name, Icon icon, QGraphicsItem*
     // Save Variables, useful for later
     m_group_id   = group_id;
     m_group_name = group_name;
+    
+
+    qDebug("CanvasBox::CanvasBox(int,QString,Icon,QGraphicsItem*): Creating box for %i %s", group_id, group_name);
 
     // Base Variables
     p_width  = 50;

@@ -305,6 +305,7 @@ void addGroup(int group_id, QString group_name, SplitOption split, Icon icon)
 {
     if (canvas.debug)
         qDebug("PatchCanvas::addGroup(%i, %s, %s, %s)", group_id, group_name.toUtf8().constData(), split2str(split), icon2str(icon));
+    qDebug("PatchCanvas::addGroup(%i, %s, %s, %s)", group_id, group_name.toUtf8().constData(), split2str(split), icon2str(icon));
 
     foreach (const group_dict_t& group, canvas.group_list)
     {
