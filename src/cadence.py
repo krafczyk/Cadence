@@ -1294,10 +1294,10 @@ class CadenceMainW(QMainWindow, ui_cadence.Ui_CadenceMainW):
             if gDBus.patchbay and kwds['path'] == gDBus.patchbay.object_path:
                 if DEBUG: print("org.jackaudio.JackPatchbay,", kwds['member'])
                 if kwds['member'] == "ClientAppeared":
-                    if DEBUG: print("ClientAppeared: {} {}", args[iJackClientId], args[iJackClientName])
+                    if DEBUG: print("ClientAppeared: {} {}" % (args[iJackClientId], args[iJackClientName]))
                     self.emit(SIGNAL("DBusJackClientAppearedCallback(int, QString)"), args[iJackClientId], args[iJackClientName])
                 elif kwds['member'] == "ClientDisappeared":
-                    if DEBUG: print("ClientDisappeared: {} {}", args[iJackClientId], args[iJackClientName])
+                    if DEBUG: print("ClientDisappeared: {} {}" % (args[iJackClientId], args[iJackClientName]))
                     self.emit(SIGNAL("DBusJackClientDisappearedCallback(int)"), args[iJackClientId])
 
         elif kwds['interface'] == "org.gna.home.a2jmidid.control":
@@ -1581,6 +1581,7 @@ class CadenceMainW(QMainWindow, ui_cadence.Ui_CadenceMainW):
 
     @pyqtSlot(int, str)
     def slot_DBusJackClientAppearedCallback(self, group_id, group_name):
+        if DEBUG: print("slot_DBusJackClientAppearedCallback: {} {}" % (group_id, group_name))
         if group_name == "alsa2jack":
             global jackClientIdALSA
             jackClientIdALSA = group_id
